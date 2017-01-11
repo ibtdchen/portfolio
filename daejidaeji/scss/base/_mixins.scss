@@ -1,0 +1,88 @@
+@import "compass/css3";
+
+$tablet-1: $tablet - 1;
+$desktop-1: $desktop - 1;
+$large-1: $large - 1;
+
+// NARROW
+@mixin narrow-less {
+  @media only screen and (max-width: $narrow) {
+    @-ms-viewport{width: $mobile;}
+    @content;
+  }
+}
+@mixin narrow-only {
+  @media (min-width: $narrow) and (max-width: $tablet-1) {
+    @-ms-viewport{width: $narrow;}
+    @content;
+  }
+}
+// TABLET
+@mixin tablet-less {
+  @media only screen and (max-width: $tablet-1) {
+    @-ms-viewport{width: $mobile;}
+    @content;
+  }
+}
+@mixin tablet-only {
+  @media (min-width: $tablet) and (max-width: $desktop-1) {
+    @-ms-viewport{width: $tablet;}
+    @content;
+  }
+}
+@mixin tablet {
+  @media only screen and (min-width: $tablet) {
+    @-ms-viewport{width: $tablet;}
+    @content;
+  }
+}
+// DESKTOP
+@mixin desktop-less {
+  @media only screen and (max-width: $desktop-1) {
+    @-ms-viewport{width: $tablet;}
+    @content;
+  }
+}
+@mixin desktop-only {
+  @media (min-width: $desktop) and (max-width: $large-1) {
+    @-ms-viewport{width: $desktop;}
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: $desktop) {
+    @-ms-viewport{width: $desktop;}
+    @content;
+  }
+}
+// LARGE
+@mixin large-less {
+  @media only screen and (max-width: $large-1) {
+    @-ms-viewport{width: $desktop;}
+    @content;
+  }
+}
+@mixin large {
+  @media only screen and (min-width: $large) {
+    @-ms-viewport{width: $large;}
+    @content;
+  }
+}
+
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}
